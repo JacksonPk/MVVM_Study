@@ -8,10 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    /*
+     Text 1개 -> 해당 화면에 나타날 값
+     버튼 3개 -> 어제, 현재, 지금 버튼
+     */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("hello Swift")
     }
 
 
