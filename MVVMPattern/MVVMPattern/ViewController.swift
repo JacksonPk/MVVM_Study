@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import Alamofire
+//import Alamofire
 
 final class ViewController: UIViewController {
     /*
@@ -15,6 +15,7 @@ final class ViewController: UIViewController {
         -년,월,일,시,분
      버튼 3개 -> 어제, 현재, 지금 버튼
      */
+    private let netwokrHandler = NetworkHandler()
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
@@ -39,7 +40,7 @@ final class ViewController: UIViewController {
         button.setTitle("Today", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.setTitleColor(.systemGray, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 15)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 15)
         button.addTarget(self, action: #selector(todayBtnTouchedUpInside), for: .touchUpInside)
         return button
     }()
@@ -48,7 +49,7 @@ final class ViewController: UIViewController {
        let button = UIButton()
         button.setTitle("Tomorrow", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
-        button.setTitleColor(.systemGray, for: .highlighted)        
+        button.setTitleColor(.systemGray, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 15)
         button.addTarget(self, action: #selector(tommorowBtnTouchedUpInside), for: .touchUpInside)
         return button
@@ -104,6 +105,7 @@ final class ViewController: UIViewController {
     
     @objc private func todayBtnTouchedUpInside() {
         print("Today")
+        netwokrHandler.requestData()
     }
     
     @objc private func tommorowBtnTouchedUpInside() {
