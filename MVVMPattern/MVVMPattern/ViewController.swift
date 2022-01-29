@@ -19,30 +19,48 @@ class ViewController: UIViewController {
     private lazy var yearLabel: UILabel = {
         let label = UILabel()
         label.text = "년"
+        label.font.withSize(10)
         label.textAlignment = .center
         return label
     }()
+    
     private lazy var monthLabel: UILabel = {
         let label = UILabel()
         label.text = "월"
+        label.font.withSize(10)
         label.textAlignment = .center
         return label
     }()
+    
     private lazy var dayLabel: UILabel = {
         let label = UILabel()
         label.text = "일"
+        label.font.withSize(10)
         label.textAlignment = .center
         return label
     }()
+    
     private lazy var hourLabel: UILabel = {
         let label = UILabel()
         label.text = "시"
+        label.font.withSize(10)
         label.textAlignment = .center
         return label
     }()
+    
     private lazy var minLabel: UILabel = {
         let label = UILabel()
         label.text = "분"
+        label.font.withSize(10)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "안녕하세요 잭슨입니당!! "
+//        label.tintColor = UIColorl
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .center
         return label
     }()
@@ -53,37 +71,52 @@ class ViewController: UIViewController {
     }
 
     private func configure() {
-        self.view.backgroundColor = .yellow
-        initTextView()
+        self.view.backgroundColor = .white
+//        initTextView()
+        addDateLabel()
+    }
+
+    private func addDateLabel() {
+        view.addSubview(dateLabel)
+        
+        dateLabel.snp.makeConstraints { make -> Void in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-16)
+        }
     }
 
     private func initTextView() {
         view.addSubview(yearLabel)
         view.addSubview(monthLabel)
-//        view.addSubview(dayLabel)
-//        view.addSubview(hourLabel)
-//        view.addSubview(dayLabel)
+        view.addSubview(dayLabel)
+        view.addSubview(hourLabel)
+        view.addSubview(minLabel)
         
         yearLabel.snp.makeConstraints { label -> Void in
             label.centerY.equalToSuperview()
-//            label.width.height.equalTo(50)
-            label.left.equalToSuperview().offset(80)
+            label.leading.equalToSuperview().offset(100)
         }
         
         monthLabel.snp.makeConstraints { label -> Void in
             label.centerY.equalToSuperview()
-            label.left.equalTo(yearLabel.snp_rightMargin).offset(16)
+            label.leading.equalTo(yearLabel.snp.trailing).offset(16)
         }
-//
-//        monthLabel.snp.makeConstraints { label -> Void in
-//            label.centerY.equalToSuperview()
-//            label.left.equalTo(yearLabel.snp_rightMargin).offset(16)
-//        }
-//
-//        monthLabel.snp.makeConstraints { label -> Void in
-//            label.centerY.equalToSuperview()
-//            label.left.equalTo(yearLabel.snp_rightMargin).offset(16)
-//        }
+        
+        dayLabel.snp.makeConstraints { label -> Void in
+            label.centerY.equalToSuperview()
+            label.leading.equalTo(monthLabel.snp.trailing).offset(16)
+        }
+        
+        hourLabel.snp.makeConstraints { label -> Void in
+            label.centerY.equalToSuperview()
+            label.leading.equalTo(dayLabel.snp.trailing).offset(16)
+        }
+        
+        minLabel.snp.makeConstraints { label -> Void in
+            label.centerY.equalToSuperview()
+            label.leading.equalTo(hourLabel.snp.trailing).offset(16)
+        }
+        
     }
 }
 
