@@ -28,6 +28,7 @@ final class ViewController: UIViewController {
        let button = UIButton()
         button.setTitle("Yesterday", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitleColor(.systemGray, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 15)
         button.addTarget(self, action: #selector(yesterDayBtnTouchedUpInside), for: .touchUpInside)
         return button
@@ -37,6 +38,7 @@ final class ViewController: UIViewController {
        let button = UIButton()
         button.setTitle("Today", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitleColor(.systemGray, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 15)
         button.addTarget(self, action: #selector(todayBtnTouchedUpInside), for: .touchUpInside)
         return button
@@ -46,6 +48,7 @@ final class ViewController: UIViewController {
        let button = UIButton()
         button.setTitle("Tomorrow", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitleColor(.systemGray, for: .highlighted)        
         button.titleLabel?.font = .systemFont(ofSize: 15)
         button.addTarget(self, action: #selector(tommorowBtnTouchedUpInside), for: .touchUpInside)
         return button
