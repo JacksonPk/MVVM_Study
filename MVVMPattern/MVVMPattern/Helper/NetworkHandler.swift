@@ -11,14 +11,18 @@ import Alamofire
 final class NetworkHandler {
     private let URL = "http://worldclockapi.com/api/json/utc/now"
     
-    func requestData() {
+    func requestData<T>(completion: @escaping (Result<T,Error>) -> Void) where T: Decodable {
         let alamofire = AF.request(URL, method: .get).validate(statusCode: 200..<300)
-        alamofire.responseString() { response in
+        let dateDecoder = JSONDecoder()
+        dateDecoder.dateDecodingStrategy = .iso8601
+
+        alamofire.responseDecodable(of: T.self, decoder: dateDecoder) { response in
             switch response.result {
             case .success(let result):
-                print("Success:",result)
+                completion(.success(result))
             case .failure(let result) :
-                print("Fail:",result)
+                print("Fail: error",result)
+                completion(.failure(result))
             }
         }
     }

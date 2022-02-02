@@ -8,5 +8,5 @@
 import Foundation
 
 struct DateDTO: Decodable {
-    let currentDateTime: Date //iso8601
+    let currentDateTime: String
 }

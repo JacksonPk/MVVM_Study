@@ -105,11 +105,29 @@ final class ViewController: UIViewController {
     
     @objc private func todayBtnTouchedUpInside() {
         print("Today")
-        netwokrHandler.requestData()
+        
+        netwokrHandler.requestData{ (result: Result<DateDTO,Error>) in
+            switch result {
+            case .success(let success):
+                print("원본 데이터",success)
+                self.parsingDTO(dateDTO: success)
+            case .failure(let failure):
+                print("failure", failure)
+            }
+        }
     }
     
     @objc private func tommorowBtnTouchedUpInside() {
         print("Tommorow")
+    }
+    
+    private func parsingDTO(dateDTO: DateDTO) -> Void {
+        //TODO: 원본데이터에서 한국시간으로 바꿀 필요가 있다.
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mmZ"
+        let date = dateFormatter.date(from: dateDTO.currentDateTime)
+        print("Korean date: \(date)")
     }
     
 }
