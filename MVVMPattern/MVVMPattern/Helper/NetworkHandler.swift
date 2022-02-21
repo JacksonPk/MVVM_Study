@@ -5,10 +5,10 @@
 //  Created by jinseo park on 1/29/22.
 //
 
-import Foundation
 import Alamofire
 
 final class NetworkHandler {
+    
     private let URL = "http://worldclockapi.com/api/json/utc/now"
     
     func requestData<T>(completion: @escaping (Result<T,Error>) -> Void) where T: Decodable {

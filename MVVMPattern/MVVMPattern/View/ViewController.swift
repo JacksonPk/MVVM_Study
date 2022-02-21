@@ -7,19 +7,16 @@
 
 import UIKit
 import SnapKit
-//import Alamofire
+import RxSwift
 
 final class ViewController: UIViewController {
-    /*
-     Text 1개 -> 해당 화면에 나타날 값
-        -년,월,일,시,분
-     버튼 3개 -> 어제, 현재, 지금 버튼
-     */
-    private let netwokrHandler = NetworkHandler()
+    
+    private let vm = ViewModel()
+    private var disposeBag = DisposeBag()
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "2022년 2월 22일 2시 22분"
+        label.text = "xxxx년 x월 xx일"
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .center
         return label
@@ -58,6 +55,25 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+
+//        vm.onUpdatedCallBack = { [weak self] in
+//            guard let self = self else {return}
+//            self.dateLabel.text = self.vm.dateTimeString
+//        }
+        vm.dateTimeString
+            .observe(on: MainScheduler.instance)
+            .subscribe { event in
+                switch event {
+                case .next(let nextVal):
+                    self.dateLabel.text = nextVal
+                case .error(let error):
+                    print("error:",error.localizedDescription)
+                case .completed:
+                    print("complted")
+                }
+            }.disposed(by: disposeBag)
+        vm.dateLoad()
+        
     }
 
     private func configure() {
@@ -95,39 +111,19 @@ final class ViewController: UIViewController {
         }
     }
     
-    private func setDateText() {
-        
-    }
-    
     @objc private func yesterDayBtnTouchedUpInside() {
         print("YesterDay")
+        vm.moveDay(day: -1)
     }
     
     @objc private func todayBtnTouchedUpInside() {
         print("Today")
-        
-        netwokrHandler.requestData{ (result: Result<DateDTO,Error>) in
-            switch result {
-            case .success(let success):
-                print("원본 데이터",success)
-                self.parsingDTO(dateDTO: success)
-            case .failure(let failure):
-                print("failure", failure)
-            }
-        }
+        vm.dateLoad()
     }
     
     @objc private func tommorowBtnTouchedUpInside() {
         print("Tommorow")
-    }
-    
-    private func parsingDTO(dateDTO: DateDTO) -> Void {
-        //TODO: 원본데이터에서 한국시간으로 바꿀 필요가 있다.
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mmZ"
-        let date = dateFormatter.date(from: dateDTO.currentDateTime)
-        print("Korean date: \(date)")
+        vm.moveDay(day: 1)
     }
     
 }
