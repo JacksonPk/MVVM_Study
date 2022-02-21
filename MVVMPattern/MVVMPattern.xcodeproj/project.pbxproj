@@ -100,6 +100,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA24E3F627C3EF0300214566 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA2BE239279BD1F400541F1D /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA24E3F727C3EF1D00214566 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA24E3F327C3E57300214566 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		FA2BE229279BD1F400541F1D = {
 			isa = PBXGroup;
 			children = (
@@ -123,13 +139,12 @@
 		FA2BE234279BD1F400541F1D /* MVVMPattern */ = {
 			isa = PBXGroup;
 			children = (
-				FA75A0F627A509E900AFC44E /* Helper */,
 				FA75A0F527A509D800AFC44E /* Model */,
+				FA24E3F627C3EF0300214566 /* View */,
+				FA24E3F727C3EF1D00214566 /* ViewModel */,
+				FA75A0F627A509E900AFC44E /* Helper */,
 				FA2BE235279BD1F400541F1D /* AppDelegate.swift */,
 				FA2BE237279BD1F400541F1D /* SceneDelegate.swift */,
-				FA24E3F327C3E57300214566 /* ViewModel.swift */,
-				FA24E3EF27C3E3DD00214566 /* Service.swift */,
-				FA2BE239279BD1F400541F1D /* ViewController.swift */,
 				FA2BE23E279BD1F600541F1D /* Assets.xcassets */,
 				FA2BE240279BD1F600541F1D /* LaunchScreen.storyboard */,
 				FA2BE243279BD1F600541F1D /* Info.plist */,
@@ -149,6 +164,7 @@
 		FA75A0F627A509E900AFC44E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				FA24E3EF27C3E3DD00214566 /* Service.swift */,
 				FA75A0F127A5087300AFC44E /* NetworkHandler.swift */,
 			);
 			path = Helper;

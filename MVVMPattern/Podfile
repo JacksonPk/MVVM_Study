@@ -6,4 +6,6 @@ target 'MVVMPattern' do
   # Pods for MVVMPattern
   pod 'Alamofire'
   pod 'SnapKit'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end

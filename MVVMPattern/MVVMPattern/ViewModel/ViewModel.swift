@@ -6,23 +6,26 @@
 //
 
 import Foundation
+import RxRelay
 
 class ViewModel {
-    var dateTimeString: String = "xxxx년 xx월 xx일"
-    {
-        didSet {
-            onUpdatedCallBack() //내가
-        }
-    }
     
-    var onUpdatedCallBack: () -> Void = {}
+    let dateTimeString = BehaviorRelay(value: "xxxx년 xx월 xx일")
+//    var dateTimeString: String = "xxxx년 xx월 xx일"
+//    {
+//        didSet {
+//            onUpdatedCallBack() //내가
+//        }
+//    }    
+//    var onUpdatedCallBack: () -> Void = {}
     let service = Service()
     
     func dateLoad() {
         service.fetchNow { [weak self] model in
             guard let self = self else {return}
             let dateString = self.updateDataTime(date: model.currentDateTime)
-            self.dateTimeString = dateString
+//            self.dateTimeString = dateString
+            self.dateTimeString.accept(dateString)
         }
     }
     func updateDataTime(date: Date) -> String {
@@ -33,6 +36,7 @@ class ViewModel {
     
     func moveDay(day: Int) {
         service.moveDay(day: day)
-        self.dateTimeString = updateDataTime(date: service.currModel.currentDateTime)
+        //self.dateTimeString = updateDataTime(date: service.currModel.currentDateTime)
+        self.dateTimeString.accept(updateDataTime(date: service.currModel.currentDateTime))
     }
 }

@@ -7,12 +7,12 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 final class ViewController: UIViewController {
     
     private let vm = ViewModel()
-    
-    var currDate = Date()
+    private var disposeBag = DisposeBag()
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
@@ -56,10 +56,22 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         configure()
 
-        vm.onUpdatedCallBack = { [weak self] in
-            guard let self = self else {return}
-            self.dateLabel.text = self.vm.dateTimeString
-        }
+//        vm.onUpdatedCallBack = { [weak self] in
+//            guard let self = self else {return}
+//            self.dateLabel.text = self.vm.dateTimeString
+//        }
+        vm.dateTimeString
+            .observe(on: MainScheduler.instance)
+            .subscribe { event in
+                switch event {
+                case .next(let nextVal):
+                    self.dateLabel.text = nextVal
+                case .error(let error):
+                    print("error:",error.localizedDescription)
+                case .completed:
+                    print("complted")
+                }
+            }.disposed(by: disposeBag)
         vm.dateLoad()
         
     }
