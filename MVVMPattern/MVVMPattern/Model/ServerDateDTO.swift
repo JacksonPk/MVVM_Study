@@ -5,8 +5,6 @@
 //  Created by jinseo park on 1/29/22.
 //
 
-import Foundation
-
-struct DateDTO: Decodable {
+struct ServerDateDTO: Decodable {
     let currentDateTime: String
 }

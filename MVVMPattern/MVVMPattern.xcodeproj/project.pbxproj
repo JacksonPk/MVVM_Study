@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		75AB767BF5DEC97BB77DBB69 /* Pods_MVVMPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0D9BE5CCF19451EAB0BDE0 /* Pods_MVVMPattern.framework */; };
+		FA24E3F027C3E3DD00214566 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24E3EF27C3E3DD00214566 /* Service.swift */; };
+		FA24E3F227C3E51B00214566 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24E3F127C3E51B00214566 /* DateModel.swift */; };
+		FA24E3F427C3E57300214566 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24E3F327C3E57300214566 /* ViewModel.swift */; };
 		FA2BE236279BD1F400541F1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BE235279BD1F400541F1D /* AppDelegate.swift */; };
 		FA2BE238279BD1F400541F1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BE237279BD1F400541F1D /* SceneDelegate.swift */; };
 		FA2BE23A279BD1F400541F1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BE239279BD1F400541F1D /* ViewController.swift */; };
 		FA2BE23F279BD1F600541F1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2BE23E279BD1F600541F1D /* Assets.xcassets */; };
 		FA2BE242279BD1F600541F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2BE240279BD1F600541F1D /* LaunchScreen.storyboard */; };
 		FA75A0F227A5087300AFC44E /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75A0F127A5087300AFC44E /* NetworkHandler.swift */; };
-		FA75A0F427A508A800AFC44E /* DateDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75A0F327A508A800AFC44E /* DateDTO.swift */; };
+		FA75A0F427A508A800AFC44E /* ServerDateDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75A0F327A508A800AFC44E /* ServerDateDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		000E0F961BAEEF6DA7F50306 /* Pods-MVVMPattern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPattern.debug.xcconfig"; path = "Target Support Files/Pods-MVVMPattern/Pods-MVVMPattern.debug.xcconfig"; sourceTree = "<group>"; };
 		474F6C72DA4176ADB1765FAF /* Pods-MVVMPattern.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPattern.release.xcconfig"; path = "Target Support Files/Pods-MVVMPattern/Pods-MVVMPattern.release.xcconfig"; sourceTree = "<group>"; };
 		5B0D9BE5CCF19451EAB0BDE0 /* Pods_MVVMPattern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMPattern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA24E3EF27C3E3DD00214566 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		FA24E3F127C3E51B00214566 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
+		FA24E3F327C3E57300214566 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		FA2BE232279BD1F400541F1D /* MVVMPattern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMPattern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2BE235279BD1F400541F1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA2BE237279BD1F400541F1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +54,7 @@
 		FA2BE248279BD1F600541F1D /* MVVMPatternTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMPatternTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2BE252279BD1F600541F1D /* MVVMPatternUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMPatternUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA75A0F127A5087300AFC44E /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
-		FA75A0F327A508A800AFC44E /* DateDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDTO.swift; sourceTree = "<group>"; };
+		FA75A0F327A508A800AFC44E /* ServerDateDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDateDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,8 @@
 				FA75A0F527A509D800AFC44E /* Model */,
 				FA2BE235279BD1F400541F1D /* AppDelegate.swift */,
 				FA2BE237279BD1F400541F1D /* SceneDelegate.swift */,
+				FA24E3F327C3E57300214566 /* ViewModel.swift */,
+				FA24E3EF27C3E3DD00214566 /* Service.swift */,
 				FA2BE239279BD1F400541F1D /* ViewController.swift */,
 				FA2BE23E279BD1F600541F1D /* Assets.xcassets */,
 				FA2BE240279BD1F600541F1D /* LaunchScreen.storyboard */,
@@ -132,7 +140,8 @@
 		FA75A0F527A509D800AFC44E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FA75A0F327A508A800AFC44E /* DateDTO.swift */,
+				FA75A0F327A508A800AFC44E /* ServerDateDTO.swift */,
+				FA24E3F127C3E51B00214566 /* DateModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,10 +329,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2BE23A279BD1F400541F1D /* ViewController.swift in Sources */,
-				FA75A0F427A508A800AFC44E /* DateDTO.swift in Sources */,
+				FA24E3F227C3E51B00214566 /* DateModel.swift in Sources */,
+				FA75A0F427A508A800AFC44E /* ServerDateDTO.swift in Sources */,
 				FA2BE236279BD1F400541F1D /* AppDelegate.swift in Sources */,
 				FA2BE238279BD1F400541F1D /* SceneDelegate.swift in Sources */,
 				FA75A0F227A5087300AFC44E /* NetworkHandler.swift in Sources */,
+				FA24E3F427C3E57300214566 /* ViewModel.swift in Sources */,
+				FA24E3F027C3E3DD00214566 /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
